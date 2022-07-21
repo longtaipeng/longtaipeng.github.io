@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>  Hello World |    Mr.long</title>
+  <title>  初用Hexo |    Mr.long</title>
   <meta name="description" content="A very simple blog">
   <!-- 标签页图标 -->
   
@@ -63,6 +63,12 @@
             </li>
           </a>
         
+          <a href="/images" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              IMAGES
+            </li>
+          </a>
+        
         
         
         <a href="/search">
@@ -114,6 +120,12 @@
       </div>
     </a>
   
+    <a href="/images" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>IMAGES</span>
+      </div>
+    </a>
+  
   
     <a href="/search">  
       <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
@@ -132,7 +144,7 @@
 <article class="post-inner">
   <div class="post-content-outer">
     <div class="post-intro">
-      <div class="post-title animate__animated  animate__fadeInUp">Hello World</div>
+      <div class="post-title animate__animated  animate__fadeInUp">初用hexo</div>
       <div class="meta-intro animate__animated  animate__fadeInUp">Jul 21 2022</div>
       
     </div>
@@ -143,27 +155,85 @@
       <div class="post-content-main animate__animated  animate__fadeInUp">
         <!-- top型目录 -->
         
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+        <blockquote>
+<p>这两天使用hexo搭建了自己的Blog, 总结一下容易遇到的问题以及分享一些好的文章</p>
+</blockquote>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
+<li>node.js</li>
+<li>hexo<br> <code>npm install hexo-cli -g</code><br> <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo官方地址</a></li>
+<li>准备好自己喜欢的主题(可以不配置主题)<br><a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo主题地址</a></li>
+</ol>
+<h3 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h3><ol>
+<li><p>使用hexo建站</p>
+<pre><code class="node">hexo init &lt;folder&gt;
+cd &lt;folder&gt;
+npm install
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p> hexo站点目录结构</p>
+<pre><code>.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</li>
+<li><p>配置主题(可以省略)</p>
+<pre><code>1. 首先将git上获取到的主题文件夹换一个名字(也可以选择不换)
+2. 将主题文件夹移动到 hexo站根目录下的themes
+3. 修改hexo站根目录下的_config.yml
+    修改 theme: &lt;主题文件夹名&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</li>
+<li><p>本地运行<br> <code>hexo s</code></p>
+</li>
+<li><p>创建新文章<br> <code>hexo n &quot;文章名&quot; / hexo new &quot;文章名&quot;</code></p>
+<blockquote>
+<p>hexo 创建的文章都存在于 hexo站点&#x2F;source&#x2F;_posts&#x2F;</p>
+</blockquote>
+</li>
+<li><p>将hexo站点部署到github上<br> 首先得在自己的github上有一个<code>&lt;自己githu名称&gt;.github.io</code>的仓库<br> hexo部署主要有两种方式 <code>自动部署</code>和<code>手动部署</code>，这里只讲自动部署</p>
+<ol>
+<li>安装hexo部署github插件<br> <code>npm install hexo-deployer-git --save</code></li>
+<li>修改hexo站根目录下的_config<pre><code>deploy:
+    type: git
+    repo: &lt;自己githu名称&gt;.github.io的仓库地址
+    branch: main(更新到哪个分支，建议使用main)
+    message: 更新说明
+    token: github koken密钥
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+<blockquote>
+<p>github koken密钥获取方式<br> 打开github的settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Generate new token</p>
+</blockquote>
+</li>
+<li>正式部署<br> 配置修改好之后在hexo站点根目录下运行<pre><code>hexo clean #清除缓存 网页正常情况下可以忽略此条命令
+hexo g #生成静态网页
+hexo d #开始部署
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>关于修改主题的配置</p>
+<blockquote>
+<p>主题的配置都存在于 hexo站点&#x2F;themes&#x2F;&lt;主题名&gt;&#x2F;_config.yml</p>
+</blockquote>
+</li>
+<li><p>值得看的文章<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35668237">超详细Hexo+Github博客搭建小白教程</a><br><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%8D%97">hexo 官方配置指南</a> 如果使用的是第三方主题有很多官方配置是不会生效的<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000002632530">hexo常用命令笔记</a></p>
+</li>
+</ol>
+</br>
+</br>
+</br>
+<p align="center"> <b> 感谢观看 </b> </p>
         <!-- 分类文章 -->
         
       </div>
       <div class="post-content-inner-space">
         
           <div class="space-toc-main animate__animated  animate__fadeInUp">
-            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Quick-Start"><span class="space-toc-text">Quick Start</span></a><ol class="space-toc-child"><li class="space-toc-item space-toc-level-3"><a class="space-toc-link" href="#Create-a-new-post"><span class="space-toc-text">Create a new post</span></a></li><li class="space-toc-item space-toc-level-3"><a class="space-toc-link" href="#Run-server"><span class="space-toc-text">Run server</span></a></li><li class="space-toc-item space-toc-level-3"><a class="space-toc-link" href="#Generate-static-files"><span class="space-toc-text">Generate static files</span></a></li><li class="space-toc-item space-toc-level-3"><a class="space-toc-link" href="#Deploy-to-remote-sites"><span class="space-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-3"><a class="space-toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="space-toc-text">准备工作</span></a></li><li class="space-toc-item space-toc-level-3"><a class="space-toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B"><span class="space-toc-text">正式开始</span></a></li></ol>
            </div>
         
       </div>
