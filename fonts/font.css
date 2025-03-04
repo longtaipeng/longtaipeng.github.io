@@ -1,0 +1,30 @@
+
+
+@font-face {
+  font-family: 'LXGW WenKai';
+  src: url('./LXGWWenKaiScreen100.woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'LXGW WenKai';
+  src: url('./LXGWWenKaiScreen200.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LXGW WenKai';
+  src: url('./LXGWWenKaiScreen201.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LXGW WenKai';
+  src: url('./LXGWWenKaiScreen300.woff');
+  font-weight: normal;
+  font-style: normal;
+}
